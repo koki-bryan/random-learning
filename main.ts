@@ -68,4 +68,72 @@ const problem6 = (): void => {
   print(123);
 };
 
-problem6();
+const pr7 = () => {
+  type Quad = {
+    shape: "quad";
+    side: number;
+  };
+  type Tri = {
+    shape: "tri";
+    side: number;
+  };
+  const print = (p: Quad | Tri | string): number | string => {
+    if (typeof p === "string") {
+      return p.toUpperCase();
+    } else {
+      if (p.shape === "quad") {
+        return p.side * 2;
+      }
+      return p.side * 3;
+    }
+  };
+
+  console.log(print("sean"));
+
+  const shape1: Quad = { shape: "quad", side: 5 };
+  const shape2: Tri = { shape: "tri", side: 5 };
+  console.log(print(shape1));
+  console.log(print(shape2));
+};
+
+const pr8 = () => {
+  type Person = {
+    name: string;
+    age: number;
+    id: number;
+  };
+  const person1: Person = {
+    name: "sean",
+    age: 19,
+    id: 12345,
+  };
+  const person12: Person = {
+    name: "sandra",
+    age: 20,
+    id: 24,
+  };
+  const person13: Person = {
+    name: "noc",
+    age: 19,
+    id: 241,
+  };
+  const person4: Person = {
+    name: "rod",
+    age: 19,
+    id: 2419,
+  };
+  const person5: Person = {
+    name: "bryan",
+    age: 19,
+    id: 901,
+  };
+
+  const users: Person[] = [person1, person12, person13, person4, person5];
+  function takeId(users: Person[]): void {
+    for (let i = 0; i < users.length; i++) {
+      console.log(users[i].id + " ");
+    }
+  }
+  takeId(users);
+};
+pr8();
